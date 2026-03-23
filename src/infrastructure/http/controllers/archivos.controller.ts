@@ -12,6 +12,7 @@ export class ArchivosController{
         await new ArchivoModel({ path, filename, size, mimetype }).save()
     return res.status(200).json({ path, filename, size, mimetype })
     } catch (error) {
+        console.log(error)
         return res.status(500).json({ message: 'Error al guardar el archivo' })
     }
 

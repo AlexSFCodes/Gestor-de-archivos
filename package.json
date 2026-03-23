@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js"
+      "dev": "tsx watch index.ts",
+      "build": "tsc",
+      "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
     "@types/multer": "^2.1.0",
     "@types/node": "^25.5.0",
     "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   },
   "dependencies": {
