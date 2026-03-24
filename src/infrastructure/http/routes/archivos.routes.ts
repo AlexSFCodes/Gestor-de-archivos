@@ -1,12 +1,14 @@
 import { Router } from 'express'
 import {ArchivosController} from '../controllers/archivos.controller.js'
 import { upload } from '../middleware/multer.middleware.js'
+import {ValidateFile} from '../middleware/validarArchivo.middleware.js'
 export class AppRoutes{
 
     static get routes():Router{
         const router = Router()
         const controller = new ArchivosController
-        router.post('/upload', upload.single('file'),controller.uploadFile)       
+        const validatermiddleware = new ValidateFile
+        router.post('/upload', upload.single('file'),validatermiddleware.middleware ,controller.uploadFile)       
         return router
     }
     

@@ -1,5 +1,5 @@
 
-class UploadFileDto { 
+export class UploadFileDto { 
     
     
     public mimetype: string   
