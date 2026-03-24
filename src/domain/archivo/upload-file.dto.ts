@@ -16,6 +16,13 @@ export class UploadFileDto {
         if (!mimetype || !filename || !size) {
             return [new Error('Faltan datos'), null]
         }
+    const tiposPermitidos = ['image/png', 'image/jpeg', 'application/pdf']
+    if (!tiposPermitidos.includes(mimetype)) {
+        return [new Error('Solo se permiten png, jpg o pdf'), null]
+    }
+        if (size>5242880) {
+            return [new Error('muy pesado'), null]
+        }
         return [null, new UploadFileDto(mimetype, filename, size)]
     }
 }
