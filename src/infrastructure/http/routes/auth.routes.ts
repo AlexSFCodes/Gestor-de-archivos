@@ -8,6 +8,7 @@ export class AuthRoutes{
         const controlador = new ArchivosAuthController  
 
         router.post('/register',controlador.register)       
+        router.post('/login',controlador.login)
         return router
     }
     
