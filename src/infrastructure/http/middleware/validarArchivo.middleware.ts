@@ -1,5 +1,5 @@
 import type { Request, Response,NextFunction } from 'express'
-import {UploadFileDto} from '../../../domain/archivo/upload-file.dto.js'
+import {UploadFileDto} from '../../../domain/dtos/archivo/upload-file.dto.js'
 export class ValidateFile{
     middleware(req:Request,res: Response, next:NextFunction){
         if(!req.file)

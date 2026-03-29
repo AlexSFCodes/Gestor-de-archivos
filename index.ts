@@ -1,5 +1,5 @@
 import express from 'express'
-import { AppRoutes } from './src/infrastructure/http/routes/archivos.routes.js'
+import { Routes } from './src/infrastructure/http/app.routes.js'
 import {MongoDB} from './src/infrastructure/database/mongodb.js'
 
 const conection = MongoDB.getInstance()
@@ -12,7 +12,7 @@ class Server {
         this.app.use(express.json())
         
         // 2. conectar las rutas
-        this.app.use(AppRoutes.routes)
+        this.app.use(Routes.routes)
         
         // 3. levantar el servidor
         this.app.listen(this.port, () => {
