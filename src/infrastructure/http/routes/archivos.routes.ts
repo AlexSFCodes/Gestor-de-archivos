@@ -9,7 +9,7 @@ export class AppRoutes{
         const router = Router()
         const controller = new ArchivosController
         const validatermiddleware = new ValidateFile
-        router.post('/upload', upload.single('file'),validatermiddleware.middleware ,controller.uploadFile)       
+        router.post('/upload',authMiddleware.middleware, upload.single('file'),validatermiddleware.middleware ,controller.uploadFile)       
         return router
     }
     

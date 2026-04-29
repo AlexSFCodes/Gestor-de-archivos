@@ -6,6 +6,7 @@ export class ArchivosController {
         if (!req.file) {
             return res.status(400).json({ message: 'No se envió ningún archivo' })
         }
+        const { id, email } = req.user!
         const { path, filename, size, mimetype } = req.file
         const createdAt = new Date()
         try {
