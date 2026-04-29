@@ -9,7 +9,12 @@ export class AppRoutes{
         const router = Router()
         const controller = new ArchivosController
         const validatermiddleware = new ValidateFile
+        
         router.post('/upload',authMiddleware.middleware, upload.single('file'),validatermiddleware.middleware ,controller.uploadFile)       
+        router.post('/upload/multiple', authMiddleware.middleware, upload.array('files'), validatermiddleware.middlewareMultiple, controller.uploadMultipleFiles)
+        router.get('/', authMiddleware.middleware, controller.getFiles)
+        router.delete('/:id', authMiddleware.middleware, controller.deleteFile)
+
         return router
     }
     
